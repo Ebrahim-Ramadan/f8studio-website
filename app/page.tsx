@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { ProjectCard } from '@/components/project-card'
+import { ContactSection } from '@/components/contact-section'
 import { getProjects } from '@/lib/db'
 
 export const dynamic = 'force-dynamic'
@@ -65,6 +66,8 @@ export default async function Home() {
             </div>
           )}
         </section>
+
+        <ContactSection />
       </main>
       <Footer />
     </>

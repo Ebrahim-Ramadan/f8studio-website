@@ -20,6 +20,14 @@ export interface ProjectImage {
   created_at: string
 }
 
+export interface ContactSubmissionInput {
+  full_name: string
+  email: string
+  phone?: string
+  project_type?: string
+  message: string
+}
+
 export async function getProjects(): Promise<Project[]> {
   try {
     const projects = await sql<Project>`
@@ -93,5 +101,30 @@ export async function getProjectImageData(projectId: string, imageId: string): P
   } catch (error) {
     console.error('Error fetching project image:', error)
     return null
+  }
+}
+
+export async function createContactSubmission(input: ContactSubmissionInput): Promise<boolean> {
+  try {
+    await sql`
+      INSERT INTO contact_submissions (
+        full_name,
+        email,
+        phone,
+        project_type,
+        message
+      ) VALUES (
+        ${input.full_name},
+        ${input.email},
+        ${input.phone ?? null},
+        ${input.project_type ?? null},
+        ${input.message}
+      )
+    `
+
+    return true
+  } catch (error) {
+    console.error('Error creating contact submission:', error)
+    return false
   }
 }

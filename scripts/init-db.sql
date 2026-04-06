@@ -22,17 +22,17 @@ CREATE TABLE IF NOT EXISTS project_images (
 CREATE INDEX IF NOT EXISTS idx_project_images_project_id ON project_images(project_id);
 CREATE INDEX IF NOT EXISTS idx_projects_created_at ON projects(created_at);
 
--- Insert sample projects for demonstration
-INSERT INTO projects (name, description) VALUES
-  (
-    'Luxury Dubai Penthouse',
-    'A stunning 5-bedroom penthouse in Downtown Dubai featuring floor-to-ceiling windows, infinity pool, and panoramic city views. High-end 3D visualization and technical detailing.'
-  ),
-  (
-    'Cairo Modern Office Complex',
-    'Contemporary office space in New Cairo with sustainable design principles, open-plan layouts, and integrated green spaces.'
-  ),
-  (
-    'Abu Dhabi Residential Development',
-    'Large-scale residential project featuring multiple villa types with modern architecture and sophisticated exterior design.'
-  );
+-- Create contact submissions table
+CREATE TABLE IF NOT EXISTS contact_submissions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  full_name VARCHAR(150) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(50),
+  project_type VARCHAR(120),
+  message TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create indexes for contact submissions
+CREATE INDEX IF NOT EXISTS idx_contact_submissions_created_at ON contact_submissions(created_at);
+CREATE INDEX IF NOT EXISTS idx_contact_submissions_email ON contact_submissions(email);

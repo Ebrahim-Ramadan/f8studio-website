@@ -14,9 +14,11 @@ export function Navbar() {
     { href: '/showreel', label: 'Showreel' },
     { href: '/animation', label: 'Animation' },
     { href: '/about', label: 'About' },
+    { href: '/#contact', label: 'Contact Us' },
   ]
 
   const isActive = (href: string) => {
+    if (href.includes('#')) return false
     if (href === '/' && pathname === '/') return true
     if (href !== '/' && pathname.startsWith(href)) return true
     return false
