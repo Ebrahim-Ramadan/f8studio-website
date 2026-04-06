@@ -29,8 +29,8 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="text-xl font-light tracking-wider text-foreground">
             <img
-            src='/logo.jpeg'
-            alt='Logo'
+            src='/logo black png.png'
+            alt='F8 studios Logo'
             className="h-14 w-auto rounded-full"
             />
           </Link>
