@@ -20,7 +20,7 @@ export function Footer() {
     },
     {
       name: 'Instagram',
-      href: 'https://instagram.com/f8studios',
+      href: 'https://www.instagram.com/f8.studios',
       icon: Instagram,
     },
     {
