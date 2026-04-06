@@ -27,15 +27,6 @@ export default function ShowreelPage() {
             </div>
           </div>
 
-          {/* Description */}
-          <div className="max-w-3xl">
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Our showreel showcases the finest moments from our recent projects. From conceptual visualizations to final rendered designs, each frame tells a story of intentional design and meticulous attention to detail.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Experience the transformation of space through cutting-edge 3D visualization and architectural excellence.
-            </p>
-          </div>
         </section>
       </main>
       <Footer />

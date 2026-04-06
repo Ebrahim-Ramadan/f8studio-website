@@ -53,7 +53,7 @@ export default function AboutPage() {
                   Locations
                 </h2>
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  Based in Dubai and Egypt, we bring a unique perspective shaped by diverse cultures and architectural traditions. Our global approach meets local understanding.
+                  Based in Al-Mansurah, Egypt, we bring a unique perspective shaped by diverse cultures and architectural traditions. Our global approach meets local understanding.
                 </p>
               </div>
             </div>

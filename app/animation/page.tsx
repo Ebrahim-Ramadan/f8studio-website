@@ -35,12 +35,7 @@ export default function AnimationPage() {
             ))}
           </div>
 
-          {/* Description */}
-          <div className="max-w-3xl border-t border-border pt-12">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Our animations transform static designs into immersive experiences. Each frame is meticulously crafted to showcase spatial relationships, material qualities, and the emotional journey through designed spaces.
-            </p>
-          </div>
+          
         </section>
       </main>
       <Footer />

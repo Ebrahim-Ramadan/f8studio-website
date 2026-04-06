@@ -24,14 +24,14 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="text-xl font-light tracking-wider text-foreground">
             <img
             src='/logo black png.png'
             alt='F8 studios Logo'
-            className="h-14 w-auto rounded-full"
+            className="h-18 w-auto rounded-full"
             />
           </Link>
 

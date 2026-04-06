@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { ArrowLeft } from 'lucide-react'
+import { Spinner } from '@/components/ui/spinner'
 
 interface Project {
   id: string
@@ -51,7 +52,9 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
       <>
         <Navbar />
         <main className="min-h-screen bg-background pt-20 flex items-center justify-center">
-          <p className="text-muted-foreground">Loading...</p>
+          <p className="text-muted-foreground">
+            <Spinner/>
+          </p>
         </main>
         <Footer />
       </>
@@ -87,7 +90,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
     <>
       <Navbar />
       <main className="min-h-screen bg-background pt-20">
-        <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="max-w-7xl mx-auto px-6 py-4">
           {/* Back Link */}
           <Link
             href="/"
