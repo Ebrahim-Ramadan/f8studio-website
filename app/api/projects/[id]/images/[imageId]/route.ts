@@ -1,7 +1,7 @@
 import { getProjectImageData } from '@/lib/db'
 import { NextRequest, NextResponse } from 'next/server'
 
-export const revalidate = 3600 // Cache for 1 hour
+export const dynamic = 'force-dynamic'
 
 export async function GET(
   request: NextRequest,
@@ -24,7 +24,7 @@ export async function GET(
     return new NextResponse(imageBuffer, {
       headers: {
         'Content-Type': image.mime_type || 'image/jpeg',
-        'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
+        'Cache-Control': 'no-store, max-age=0',
         'Content-Disposition': `inline; filename="${image.filename}"`,
       },
     })

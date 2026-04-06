@@ -32,11 +32,11 @@ export function ProjectCard({ id, name, description, imageUrl, slug = id }: Proj
           )}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
         </div>
-        <div className="space-y-3">
+        <div className="md:space-y-3 space-y-2 ">
           <h3 className="text-lg font-light tracking-wide text-foreground group-hover:text-accent transition-colors">
             {name}
           </h3>
-          <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+          <p className="text-sm text-muted-foreground line-clamp-2 md:leading-relaxed">
             {description}
           </p>
         </div>

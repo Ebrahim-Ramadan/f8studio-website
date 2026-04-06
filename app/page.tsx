@@ -3,7 +3,7 @@ import { Footer } from '@/components/footer'
 import { ProjectCard } from '@/components/project-card'
 import { getProjects } from '@/lib/db'
 
-export const revalidate = 3600 // Revalidate every hour
+export const dynamic = 'force-dynamic'
 
 export default async function Home() {
   const projects = await getProjects()
@@ -13,20 +13,20 @@ export default async function Home() {
       <Navbar />
       <main className="min-h-screen bg-background pt-24">
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 py-20">
+        <section className="max-w-7xl mx-auto px-6 md:py-12 py-6">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-light tracking-tight text-foreground mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-light tracking-tight text-foreground mb-6 leading-tight">
               Form Follows Fate
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+            <p className="md:text-lg text-base text-muted-foreground md:leading-relaxed max-w-xl">
               High-end 3D visualization, interior and exterior design, and technical detailing that transforms concepts into refined, realistic outcomes.
             </p>
           </div>
         </section>
 
         {/* Projects Grid */}
-        <section className="max-w-7xl mx-auto px-6 py-20">
-          <h2 className="text-3xl font-light tracking-wide text-foreground mb-16">
+        <section className="max-w-7xl mx-auto px-6 md:py-12 py-6">
+          <h2 className="text-3xl font-light tracking-wide text-foreground md:mb-16 mb-6">
             Projects
           </h2>
           

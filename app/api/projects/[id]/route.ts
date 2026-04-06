@@ -1,7 +1,7 @@
 import { getProjectById } from '@/lib/db'
 import { NextRequest, NextResponse } from 'next/server'
 
-export const revalidate = 3600 // Cache for 1 hour
+export const dynamic = 'force-dynamic'
 
 export async function GET(
   request: NextRequest,
@@ -16,7 +16,11 @@ export async function GET(
       return NextResponse.json({ error: 'Project not found' }, { status: 404 })
     }
 
-    return NextResponse.json(project)
+    return NextResponse.json(project, {
+      headers: {
+        'Cache-Control': 'no-store, max-age=0',
+      },
+    })
   } catch (error) {
     console.error('Error fetching project:', error)
     return NextResponse.json({ error: 'Failed to fetch project' }, { status: 500 })
