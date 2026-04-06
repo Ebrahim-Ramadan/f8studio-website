@@ -28,7 +28,11 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="text-xl font-light tracking-wider text-foreground">
-            F8
+            <img
+            src='/logo.jpeg'
+            alt='Logo'
+            className="h-14 w-auto rounded-full"
+            />
           </Link>
 
           {/* Desktop Navigation */}

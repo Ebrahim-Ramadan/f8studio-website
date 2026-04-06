@@ -16,7 +16,7 @@ export default async function Home() {
         <section className="max-w-7xl mx-auto px-6 py-20">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-light tracking-tight text-foreground mb-6 leading-tight">
-              Where Design Meets Intention
+              Where Form Follows Fate
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
               High-end 3D visualization, interior and exterior design, and technical detailing that transforms concepts into refined, realistic outcomes.

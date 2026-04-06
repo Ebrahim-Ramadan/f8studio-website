@@ -1,5 +1,13 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react'
-import Link from 'next/link'
+import type { SVGProps } from 'react'
+
+function BehanceIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M8.88 11.58c.93-.43 1.4-1.21 1.4-2.34 0-2-1.5-3.13-4.15-3.13H0V18h6.43c2.7 0 4.26-1.26 4.26-3.46 0-1.52-.61-2.5-1.81-2.96ZM3 8.53h2.8c1.03 0 1.53.41 1.53 1.24 0 .84-.5 1.26-1.53 1.26H3V8.53Zm2.9 7.04H3v-2.42h2.9c1.13 0 1.67.39 1.67 1.2 0 .82-.54 1.22-1.67 1.22ZM19.3 9.2c-3.11 0-5.04 1.87-5.04 4.9s1.88 4.9 5.04 4.9c2.48 0 4.18-1.16 4.67-3.18h-2.98c-.32.62-.9.92-1.73.92-1.18 0-1.95-.63-2.11-1.72H24v-.68c0-3.11-1.75-5.14-4.7-5.14Zm-2.12 3.95c.2-1.03.93-1.63 2.05-1.63 1.1 0 1.82.58 1.96 1.63h-4.01ZM15.58 6.05h7.46v1.7h-7.46z" />
+    </svg>
+  )
+}
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -7,7 +15,7 @@ export function Footer() {
   const socialLinks = [
     {
       name: 'Facebook',
-      href: 'https://facebook.com/f8studios',
+      href: 'https://www.facebook.com/profile.php?id=61575441685133',
       icon: Facebook,
     },
     {
@@ -17,9 +25,15 @@ export function Footer() {
     },
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com/company/f8studios',
+      href: 'https://www.linkedin.com/in/f8-studios-8635683ba',
       icon: Linkedin,
     },
+    {
+      name: 'Behance',
+      href: 'https://www.behance.net/f8studios',
+      icon: BehanceIcon,
+    },
+
   ]
 
   return (
