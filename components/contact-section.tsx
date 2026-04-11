@@ -268,7 +268,7 @@ export function ContactSection() {
     <section className="max-w-7xl mx-auto px-6 py-16 md:py-24 scroll-mt-28" id="contact">
       <div className="rounded-2xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr]">
-          <div className="p-8 md:p-10 border-b lg:border-b-0 lg:border-r border-border bg-gradient-to-b from-muted/50 to-transparent">
+          <div className="p-4 md:p-10 border-b lg:border-b-0 lg:border-r border-border bg-gradient-to-b from-muted/50 to-transparent">
             <p className="text-xs tracking-[0.22em] uppercase text-muted-foreground mb-3">Contact Us</p>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">Let's build your next project</h2>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-md">
@@ -280,7 +280,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <form onSubmit={onSubmit} className="p-8 md:p-10 space-y-5">
+          <form onSubmit={onSubmit} className="p-2 md:p-10 space-y-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label htmlFor="fullName" className="text-sm text-foreground">Full Name *</label>
@@ -308,7 +308,7 @@ export function ContactSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label htmlFor="phone" className="text-sm text-foreground">Phone</label>
-                <div className="grid grid-cols-[120px_1fr] gap-2">
+                <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2">
                   <select
                     aria-label="Country code"
                     value={countryCode}
@@ -320,7 +320,7 @@ export function ContactSection() {
                         phone: applyCountryCode(prev.phone, selectedCode),
                       }))
                     }}
-                    className="h-9 rounded-md border border-input bg-transparent px-2 text-sm text-foreground outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+                    className="h-9 rounded-md border border-input bg-transparent text-sm text-foreground outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 w-full max-w-[120px] truncate"
                   >
                     {COUNTRY_CODES.map((country) => (
                       <option key={country.code} value={country.code}>

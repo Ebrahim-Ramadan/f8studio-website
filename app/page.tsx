@@ -14,7 +14,7 @@ export default async function Home() {
       <Navbar />
       <main className="min-h-screen bg-background pt-24 pb-12">
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 md:-mt-12 md:-z-50 md:py-0 py-12">
+        <section className="max-w-7xl mx-auto px-4 md:-mt-12 md:-z-50 md:py-0 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-6xl font-light tracking-tight text-foreground mb-6 leading-tight">
@@ -45,7 +45,7 @@ export default async function Home() {
           </h2>
           
           {projects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {projects.map((project) => (
                 <ProjectCard
                   key={project.id}
