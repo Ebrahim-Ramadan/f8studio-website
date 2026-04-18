@@ -128,3 +128,108 @@ export async function createContactSubmission(input: ContactSubmissionInput): Pr
     return false
   }
 }
+
+export interface HiringCandidateInput {
+  full_name: string
+  phone?: string | null
+  email: string
+  portfolio?: string | null
+  years_experience?: number | null
+  main_field?: string | null
+  software_skills?: string[]
+  visualization_level?: string | null
+  ai_tools?: string[]
+  ai_usage?: string[]
+  ai_use_behavior?: string | null
+  prompt_skill?: string | null
+  ai_importance?: string | null
+  design_style?: string | null
+  contrast_preference?: string | null
+  design_tendency?: string | null
+  design_focus?: string | null
+  start_approach?: string | null
+  problem_approach?: string[]
+  feedback_handling?: string | null
+  under_pressure?: string | null
+  work_environment?: string | null
+  scenario_response?: string | null
+  portfolio_project?: string | null
+  portfolio_why?: string | null
+  final_filter?: string | null
+  current_salary?: string | null
+  expected_salary?: string | null
+  created_at?: string
+}
+
+export async function createHiringCandidate(input: HiringCandidateInput): Promise<boolean> {
+  try {
+    await sql`
+      INSERT INTO hiring_candidates (
+        full_name,
+        phone,
+        email,
+        portfolio,
+        years_experience,
+        main_field,
+        software_skills,
+        visualization_level,
+        ai_tools,
+        ai_usage,
+        ai_use_behavior,
+        prompt_skill,
+        ai_importance,
+        design_style,
+        contrast_preference,
+        design_tendency,
+        design_focus,
+        start_approach,
+        problem_approach,
+        feedback_handling,
+        under_pressure,
+        work_environment,
+        scenario_response,
+        portfolio_project,
+        portfolio_why,
+        final_filter,
+        current_salary,
+        expected_salary,
+        created_at
+      ) VALUES (
+        ${input.full_name},
+        ${input.phone ?? null},
+        ${input.email},
+        ${input.portfolio ?? null},
+        ${input.years_experience ?? null},
+        ${input.main_field ?? null},
+        ${JSON.stringify(input.software_skills ?? [])}::jsonb,
+        ${input.visualization_level ?? null},
+        ${JSON.stringify(input.ai_tools ?? [])}::jsonb,
+        ${JSON.stringify(input.ai_usage ?? [])}::jsonb,
+        ${input.ai_use_behavior ?? null},
+        ${input.prompt_skill ?? null},
+        ${input.ai_importance ?? null},
+        ${input.design_style ?? null},
+        ${input.contrast_preference ?? null},
+        ${input.design_tendency ?? null},
+        ${input.design_focus ?? null},
+        ${input.start_approach ?? null},
+        ${JSON.stringify(input.problem_approach ?? [])}::jsonb,
+        ${input.feedback_handling ?? null},
+        ${input.under_pressure ?? null},
+        ${input.work_environment ?? null},
+        ${input.scenario_response ?? null},
+        ${input.portfolio_project ?? null},
+        ${input.portfolio_why ?? null},
+        ${input.final_filter ?? null},
+        ${input.current_salary ?? null},
+        ${input.expected_salary ?? null},
+        ${input.created_at ?? new Date().toISOString()}
+      )
+    `
+
+    return true
+  } catch (error) {
+    console.error('Error creating hiring candidate:', error)
+    return false
+  }
+}

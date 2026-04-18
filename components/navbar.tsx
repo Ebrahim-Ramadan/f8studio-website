@@ -13,6 +13,7 @@ export function Navbar() {
     { href: '/', label: 'Projects' },
     { href: '/showreel', label: 'Showreel' },
     { href: '/animation', label: 'Animation' },
+    { href: '/hiring', label: 'Apply' },
     { href: '/about', label: 'About' },
     { href: '/#contact', label: 'Contact Us' },
   ]
