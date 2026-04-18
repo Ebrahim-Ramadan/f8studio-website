@@ -164,13 +164,13 @@ export default function HiringPage() {
 
   return (
    <>
-    <Navbar />
-    <div className="min-h-screen bg-gradient-to-b from-black-50 via-indigo-100 to-indigo-200 dark:from-indigo-900 dark:via-slate-800 dark:to-indigo-900 py-24">
+    {/* <Navbar /> */}
+    <div className="min-h-screen bg-gradient-to-b from-blue-100/50 via-blue-100 to-blue-200  py-24">
       
       <div className="max-w-3xl mx-auto px-3 md:px-6">
       
         {!submitted ? (
-          <Card className="bg-white/70 dark:bg-slate-900/60 backdrop-blur-sm">
+          <Card className="bg-white/20  backdrop-blur-xl">
             <CardHeader>
               <CardTitle className="text-3xl font-bold">Join Our Team</CardTitle>
             </CardHeader>
@@ -258,7 +258,7 @@ export default function HiringPage() {
               <section>
                 <h2 className="text-2xl font-bold">Software Skills</h2>
                 <div className="mt-4 p-6 border border-input rounded-lg bg-background/40 space-y-4">
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['AutoCAD','3ds Max','Corona Renderer','V-Ray','SketchUp','Photoshop','Other'].map((s)=> (
                       <label key={s} className="inline-flex items-center gap-2 font-medium">
                         <input className="h-4 w-4 accent-indigo-600" type="checkbox" name={`softwareSkills[]`} value={s} />
@@ -287,7 +287,7 @@ export default function HiringPage() {
                     <label className="block font-medium font-medium mb-1"> Which AI tools do you currently use in your workflow? (Select all that apply)</label>
 
                
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['Midjourney','DALL·E','Nano banana','Kling','Stable Diffusion','ChatGPT','Photoshop AI tools','Other','I don’t use AI tools'].map((a)=> (
                       <label key={a} className="inline-flex items-center gap-2 font-medium">
                         <input className="h-4 w-4 accent-indigo-600" type="checkbox" name={`aiTools[]`} value={a} />
@@ -298,7 +298,7 @@ export default function HiringPage() {
 
                   <div>
                     <label className="block font-medium font-medium mb-1">How do you use AI in your design process? (Select all that apply)</label>
-                    <div className="grid grid-cols-2 gap-2 mt-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
                       {['Idea generation (concepts & inspiration)','Creating moodboards','Image enhancement / upscaling','Presentation support','Rendering assistance','I don’t use AI'].map((u)=> (
                         <label key={u} className="inline-flex items-center gap-2 font-medium">
                           <input className="h-4 w-4 accent-indigo-600" type="checkbox" name={`aiUsage[]`} value={u} />
@@ -351,7 +351,7 @@ export default function HiringPage() {
                 <h2 className="text-2xl font-bold">Design Taste</h2>
                 <div className="mt-4 p-6 border border-input rounded-lg bg-background/40 space-y-4">
                   <label className="block font-medium font-medium mb-1">Which design style do you prefer? </label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['Minimal','Modern','Contemporary','Classic','Eclectic'].map(s=> (
                       <label key={s} className="inline-flex items-center gap-2 font-medium">
                         <input className="h-4 w-4 accent-indigo-600" type="radio" name="designStyle" value={s} />
@@ -399,7 +399,7 @@ export default function HiringPage() {
                 <h2 className="text-2xl font-bold">Work Approach</h2>
                 <div className="mt-4 p-6 border border-input rounded-lg bg-background/40 space-y-4">
                   <label className="block font-medium font-medium mb-1">How do you usually start a project? </label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['Moodboard first','Space planning first','References research','Depends on project'].map(a=> (
                       <label key={a} className="inline-flex items-center gap-2 font-medium">
                         <input className="h-4 w-4 accent-indigo-600" type="radio" name="startApproach" value={a} />
@@ -408,7 +408,7 @@ export default function HiringPage() {
                     ))}
                   </div>
                     <label className="block font-medium font-medium mb-1">When facing a design problem, you usually:</label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['look for references','experiment','ask for feedback','analyze before acting'].map(a=> (
                       <label key={a} className="inline-flex items-center gap-2 font-medium">
                         <input className="h-4 w-4 accent-indigo-600" type="checkbox" name={`problemApproach[]`} value={a} />
@@ -423,7 +423,7 @@ export default function HiringPage() {
                 <h2 className="text-2xl font-bold">Personality & Behavior</h2>
                 <div className="mt-4 p-6 border border-input rounded-lg bg-background/40 space-y-4">
                      <label className="block font-medium font-medium mb-1">How do you usually handle feedback on your designs?</label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['I follow exactly','I discuss and suggest improvements','I defend my design if needed'].map(a=> (
                       <label key={a} className="inline-flex items-center gap-2 font-medium">
                         <input className="h-4 w-4 accent-indigo-600" type="radio" name="feedbackHandling" value={a} />
@@ -433,7 +433,7 @@ export default function HiringPage() {
                   </div>
                   
                   <label className="block font-medium font-medium mb-1">How do you usually handle stress in your workflow?</label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['Stay calm and organized','Work faster even if messy','Get stressed but deliver','Need guidance'].map(a=> (
                       <label key={a} className="inline-flex items-center gap-2 font-medium">
                         <input className="h-4 w-4 accent-indigo-600" type="radio" name="underPressure" value={a} />
@@ -448,7 +448,7 @@ export default function HiringPage() {
                 <h2 className="text-2xl font-bold">Work Style</h2>
                 <div className="mt-4 p-6 border border-input rounded-lg bg-background/40">
                     <label className="block font-medium font-medium mb-1">What type of work environment do you prefer?</label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['Structured & clear tasks','Flexible & creative','Fast-paced','Balanced'].map(a=> (
                       <label key={a} className="inline-flex items-center gap-2 font-medium">
                         <input className="h-4 w-4 accent-indigo-600" type="radio" name="workEnvironment" value={a} />
@@ -464,7 +464,7 @@ export default function HiringPage() {
                 <div className="mt-4 p-6 border border-input rounded-lg bg-background/40">
                     <label className="block font-medium font-medium mb-1">If a client asks for something you feel is not aesthetically good:</label>
                  
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['I do exactly what they ask','I suggest alternatives','I explain why it may not work','I try to balance both'].map(a=> (
                       <label key={a} className="inline-flex items-center gap-2 font-medium">
                         <input className="h-4 w-4 accent-indigo-600" type="radio" name="scenarioResponse" value={a} />
@@ -494,7 +494,7 @@ export default function HiringPage() {
                 <div className="mt-4 p-6 border border-input rounded-lg bg-background/40 space-y-4">
                 
                   <label className="block font-medium font-medium mb-1">Which describes you more:</label> 
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['I follow instructions well','I think and challenge ideas','I do both depending on the situation'].map(a=> (
                       <label key={a} className="inline-flex items-center gap-2 font-medium">
                         <input className="h-4 w-4 accent-indigo-600" type="radio" name="finalFilter" value={a} />
@@ -515,7 +515,7 @@ export default function HiringPage() {
                 {message && (
                   <div className="font-medium mr-auto text-rose-600 whitespace-pre-wrap">{message}</div>
                 )}
-                <Button type="submit" size="lg" disabled={loading} className='text-lg font-bold'>
+                <Button type="submit" size="lg" disabled={loading} className='text-lg font-bold bg-blue-400 hover:bg-blue-500 disabled:bg-blue-300 disabled:text-gray-500'>
                   {loading ? 'Submitting...' : 'Submit '}
                 </Button>
               </div>

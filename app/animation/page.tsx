@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function AnimationPage() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <main className="min-h-screen bg-background pt-24">
         <section className="max-w-7xl mx-auto px-6 py-20">
           <div className="mb-16">
@@ -38,7 +38,7 @@ export default function AnimationPage() {
           
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

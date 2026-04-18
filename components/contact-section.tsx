@@ -275,7 +275,7 @@ export function ContactSection() {
               Share your idea, project scope, and timeline. We will review your message and get back to you with a tailored response.
             </p>
             <div className="mt-8 space-y-3 text-sm text-muted-foreground">
-              <p>Email: hello@f8studios.com</p>
+              <p>Email: info@f8-studios.net</p>
               <p>Location: Al-Mansurah, Egypt</p>
             </div>
           </div>

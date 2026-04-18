@@ -84,13 +84,13 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
   if (loading) {
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <main className="min-h-screen bg-background pt-20 flex items-center justify-center">
           <p className="text-muted-foreground">
             <Spinner />
           </p>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </>
     )
   }
@@ -98,7 +98,7 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
   if (error || !project) {
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <main className="min-h-screen bg-background pt-20">
           <div className="max-w-7xl mx-auto px-6 py-12">
             <Link
@@ -113,7 +113,7 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
             </div>
           </div>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </>
     )
   }
@@ -122,7 +122,7 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <main className="min-h-screen bg-background pt-24">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <Link
@@ -201,7 +201,7 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
           </div>
         </div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

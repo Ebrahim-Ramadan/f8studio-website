@@ -74,10 +74,10 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-medium tracking-wide text-foreground mb-4">Contact</h4>
             <a
-              href="mailto:hello@f8studios.com"
+              href="mailto:info@f8-studios.net"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              hello@f8studios.com
+              info@f8-studios.net
             </a>
           </div>
         </div>

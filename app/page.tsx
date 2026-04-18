@@ -1,5 +1,3 @@
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
 import { ProjectCard } from '@/components/project-card'
 import { ContactSection } from '@/components/contact-section'
 import { getProjects } from '@/lib/db'
@@ -14,7 +12,7 @@ export default async function Home() {
       {/* <Navbar /> */}
       <main className="min-h-screen bg-background pt-24 pb-12 -mt-4">
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-4 md:-mt-12 md:-z-50 md:py-0 py-12">
+        <section className="max-w-7xl mx-auto px-4 md:-mt-12  md:py-0 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-6xl font-light tracking-tight text-foreground mb-6 leading-tight">
@@ -38,8 +36,13 @@ export default async function Home() {
           </div>
         </section>
 
+<div className="hidden md:flex flex-row justify-center mx-auto max-w-7xl -mt-16 pb-6 text-center">
+  <div className="bg-gradient-to-r from-black from-transparent via-black/20 to-transparent w-full  h-[2px] "></div>
+  </div>
+       
+       
         {/* Projects Grid */}
-        <section className="max-w-7xl mx-auto px-6 -mt-8">
+        <section className="max-w-7xl mx-auto px-6 ">
           <h2 className="text-3xl font-light tracking-wide text-foreground md:mb-8 mb-6">
             Projects
           </h2>
@@ -69,7 +72,6 @@ export default async function Home() {
 
         <ContactSection />
       </main>
-      <Footer />
     </>
   )
 }

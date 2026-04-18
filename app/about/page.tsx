@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Navbar />
       <main className="min-h-screen bg-background pt-24">
         <section className="max-w-4xl mx-auto px-6 py-20">
           {/* Header */}
@@ -88,7 +87,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }
