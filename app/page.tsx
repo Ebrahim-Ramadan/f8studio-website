@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <>
       {/* <Navbar /> */}
-      <main className="min-h-screen bg-background pt-24 pb-12">
+      <main className="min-h-screen bg-background pt-24 pb-12 -mt-4">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-4 md:-mt-12 md:-z-50 md:py-0 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -39,8 +39,8 @@ export default async function Home() {
         </section>
 
         {/* Projects Grid */}
-        <section className="max-w-7xl mx-auto px-6 ">
-          <h2 className="text-3xl font-light tracking-wide text-foreground md:mb-16 mb-6">
+        <section className="max-w-7xl mx-auto px-6 -mt-8">
+          <h2 className="text-3xl font-light tracking-wide text-foreground md:mb-8 mb-6">
             Projects
           </h2>
           

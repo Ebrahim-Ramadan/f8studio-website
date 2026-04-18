@@ -25,6 +25,7 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
   const [project, setProject] = useState<Project | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [imageDims, setImageDims] = useState<Record<string, { width: number; height: number }>>({})
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -45,6 +46,40 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
 
     fetchProject()
   }, [id])
+
+  const images = project && Array.isArray(project.images) ? project.images : []
+
+  useEffect(() => {
+    if (!project || images.length === 0) return
+    let mounted = true
+
+    const loadDims = async () => {
+      await Promise.all(
+        images.map((imageId) =>
+          new Promise<void>((resolve) => {
+            if (!mounted) return resolve()
+            // skip if already loaded
+            if (imageDims[imageId]) return resolve()
+
+            const img = new window.Image()
+            img.src = `/api/projects/${project.id}/images/${imageId}`
+            img.onload = () => {
+              if (!mounted) return resolve()
+              setImageDims((prev) => ({ ...prev, [imageId]: { width: img.naturalWidth, height: img.naturalHeight } }))
+              resolve()
+            }
+            img.onerror = () => resolve()
+          })
+        )
+      )
+    }
+
+    loadDims()
+
+    return () => {
+      mounted = false
+    }
+  }, [project, images, imageDims])
 
   if (loading) {
     return (
@@ -83,12 +118,12 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
     )
   }
 
-  const images = project.images && Array.isArray(project.images) ? project.images : []
+  
 
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-background pt-20">
+      <main className="min-h-screen bg-background pt-24">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <Link
             href="/"
@@ -109,17 +144,33 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
 
           {images.length > 0 ? (
             <div className="space-y-4">
-              {images.map((imageId) => (
-                <div key={imageId} className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted">
-                  <Image
-                    src={`/api/projects/${project.id}/images/${imageId}`}
-                    alt={project.name}
-                    fill
-                    className="object-cover w-full h-full"
-                    priority={false}
-                  />
-                </div>
-              ))}
+              {images.map((imageId) => {
+                const dims = imageDims[imageId]
+                return (
+                  <div key={imageId} className="w-full overflow-hidden rounded-lg bg-muted">
+                    {dims ? (
+                      <Image
+                        src={`/api/projects/${project.id}/images/${imageId}`}
+                        alt={project.name}
+                        width={dims.width}
+                        height={dims.height}
+                        style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+                        priority={false}
+                      />
+                    ) : (
+                      <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted">
+                        <Image
+                          src={`/api/projects/${project.id}/images/${imageId}`}
+                          alt={project.name}
+                          fill
+                          className="h-full w-full object-contain"
+                          priority={false}
+                        />
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           ) : (
             <div className="text-center py-16">

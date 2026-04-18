@@ -42,7 +42,7 @@ export async function getProjects(): Promise<Project[]> {
         p.created_at,
         p.updated_at
       FROM projects p
-      LEFT JOIN project_images pi ON pi.project_id = p.id
+      LEFT JOIN project_images pi ON pi.project_id = p.id AND pi.is_front = true
       GROUP BY p.id, p.name, p.description, p.created_at, p.updated_at
       ORDER BY p.created_at DESC
     `
