@@ -127,7 +127,7 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
             </div>
           )}
 
-          <div className="mt-10 pt-8 border-t border-border">
+          <div className="mt-10 pt-8 ">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-sm font-medium tracking-wide text-foreground mb-2 uppercase">
@@ -142,9 +142,34 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
               </div>
               <div>
                 <h3 className="text-sm font-medium tracking-wide text-foreground mb-2 uppercase">
-                  Category
+                  Behind the Project
                 </h3>
-                <p className="text-base text-muted-foreground">Architecture & Visualization</p>
+                {/* few images of the F8 team (local images from /public) shown as overlapping thumbnails */}
+                {(() => {
+                  const teamImages = ['/placeholder-user.jpg', '/logo.jpeg', '/logo black png.png', '/placeholder.jpg']
+
+                  return (
+                    <div className="mt-2 flex items-center">
+                      <div className="flex items-center">
+                        {teamImages.slice(0, 4).map((src, i) => (
+                          <div
+                            key={src}
+                            className={`${i !== 0 ? '-ml-4' : ''} w-20 h-20 rounded-lg overflow-hidden ring-1 ring-white/10 shadow-sm bg-muted`}
+                          >
+                            <Image
+                              src={src}
+                              alt={`Team image ${i + 1}`}
+                              width={160}
+                              height={120}
+                              className="object-cover w-full h-full"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      <div className="ml-4 text-sm text-muted-foreground">Our team</div>
+                    </div>
+                  )
+                })()}
               </div>
             </div>
           </div>
