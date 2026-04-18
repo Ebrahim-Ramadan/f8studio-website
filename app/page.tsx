@@ -11,7 +11,7 @@ export default async function Home() {
   
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <main className="min-h-screen bg-background pt-24 pb-12">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-4 md:-mt-12 md:-z-50 md:py-0 py-12">

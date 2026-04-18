@@ -233,3 +233,84 @@ export async function createHiringCandidate(input: HiringCandidateInput): Promis
     return false
   }
 }
+
+export interface SurveyInput {
+  lifestyle_primary: string
+  guest_frequency: string
+  privacy_level: string
+  contrast_preference: string
+  lighting_mood: string
+  material_preference: string
+  design_boldness: string
+  visual_complexity: string
+  texture_level: string
+  overall_vibe: string
+  storage_needs: string
+  custom_elements: string
+  hvac_system: string
+  smart_home_integration: string
+  lighting_preference: string
+  consistency_across_spaces: string
+  priority_focus: string
+  decision_maker: string
+  approval_style: string
+  additional_notes?: string | null
+  created_at?: string
+}
+
+export async function createSurveySubmission(input: SurveyInput): Promise<boolean> {
+  try {
+    await sql`
+      INSERT INTO surveys (
+        lifestyle_primary,
+        guest_frequency,
+        privacy_level,
+        contrast_preference,
+        lighting_mood,
+        material_preference,
+        design_boldness,
+        visual_complexity,
+        texture_level,
+        overall_vibe,
+        storage_needs,
+        custom_elements,
+        hvac_system,
+        smart_home_integration,
+        lighting_preference,
+        consistency_across_spaces,
+        priority_focus,
+        decision_maker,
+        approval_style,
+        additional_notes,
+        created_at
+      ) VALUES (
+        ${input.lifestyle_primary},
+        ${input.guest_frequency},
+        ${input.privacy_level},
+        ${input.contrast_preference},
+        ${input.lighting_mood},
+        ${input.material_preference},
+        ${input.design_boldness},
+        ${input.visual_complexity},
+        ${input.texture_level},
+        ${input.overall_vibe},
+        ${input.storage_needs},
+        ${input.custom_elements},
+        ${input.hvac_system},
+        ${input.smart_home_integration},
+        ${input.lighting_preference},
+        ${input.consistency_across_spaces},
+        ${input.priority_focus},
+        ${input.decision_maker},
+        ${input.approval_style},
+        ${input.additional_notes ?? null},
+        ${input.created_at ?? new Date().toISOString()}
+      )
+    `
+
+    return true
+  } catch (error) {
+    console.error('Error creating survey submission:', error)
+    return false
+  }
+}
