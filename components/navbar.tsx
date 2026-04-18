@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, FolderOpen, Play, Sparkles, UserRound, Info, Mail } from 'lucide-react'
+import { Menu, X, FolderOpen, Play, Sparkles, UserRound, Info, Mail, FileQuestion } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 export function Navbar() {
@@ -17,6 +17,7 @@ export function Navbar() {
     { href: '/animation', label: 'Animation', icon: Sparkles },
     { href: '/hiring', label: 'Apply', icon: UserRound },
     { href: '/about', label: 'About', icon: Info },
+    { href: '/survey', label: 'Survey', icon: FileQuestion },
     { href: '/#contact', label: 'Contact', icon: Mail },
   ]
 

@@ -265,7 +265,7 @@ export function ContactSection() {
   }
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16 md:py-24 scroll-mt-28" id="contact">
+    <section className="max-w-7xl mx-auto px-6 py-16 md:py-24 scroll-mt-16" id="contact">
       <div className="rounded-2xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr]">
           <div className="p-4 md:p-10 border-b lg:border-b-0 lg:border-r border-border bg-gradient-to-b from-muted/50 to-transparent">
@@ -378,7 +378,7 @@ export function ContactSection() {
                 <p>{responseMessage || 'We typically reply within 1-2 business days.'}</p>
               </div>
 
-              <Button type="submit" disabled={submissionState === 'submitting'} className="min-w-36">
+              <Button type="submit" disabled={submissionState === 'submitting'} className="min-w-36 bg-blue-400 hover:bg-blue-500 disabled:bg-blue-300 disabled:text-gray-500">
                 {submissionState === 'submitting' ? 'Sending...' : 'Send Message'}
               </Button>
             </div>

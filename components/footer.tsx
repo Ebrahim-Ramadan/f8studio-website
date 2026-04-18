@@ -37,7 +37,7 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-background border-t border-border">
+    <footer className="bg-background ">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
@@ -81,6 +81,11 @@ export function Footer() {
             </a>
           </div>
         </div>
+        
+<div className="hidden md:flex flex-row justify-center mx-auto max-w-7xl  text-center">
+  <div className="bg-gradient-to-r from-black from-transparent via-black/20 to-transparent w-full  h-[2px] "></div>
+  </div>
+       
 
         {/* Bottom */}
         <div className="pt-8 border-t border-border">

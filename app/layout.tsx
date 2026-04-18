@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Navbar } from '@/components/navbar'
-import { Footer } from 'react-day-picker'
+import { Footer } from '@/components/footer'
 
 
 export const metadata: Metadata = {
@@ -33,14 +33,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <Navbar/>
       <body className="font-sans antialiased">
         {children}
-        {/* {process.env.NODE_ENV === 'production' && } */}
       </body>
-      <Footer />
-
+      <Footer/>
       <Analytics />
     </html>
   )
