@@ -118,8 +118,8 @@ export default function SurveyPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-8 mt-16">
-      <div className="bg-white/70 dark:bg-slate-800 rounded-xl p-8 shadow-md border border-slate-100 dark:border-slate-700">
+    <div className="w-full p-8 mt-16 bg-gradient-to-b from-blue-100/50 via-blue-100 to-blue-200 ">
+      <div className="max-w-3xl mx-auto bg-white/20 backdrop-blur-xl dark:bg-slate-800 rounded-xl p-8 shadow-md border border-slate-100 dark:border-slate-700">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">Client Survey</h1>
         <p className="text-base text-slate-600 dark:text-slate-400 mb-6">Quick preferences to help us design a tailored space.</p>
         <form onSubmit={handleSubmit}>
@@ -146,7 +146,7 @@ export default function SurveyPage() {
         }).map(([label, [name, opts]]: any) => (
           <div key={name} className="mb-4">
             <label className="block text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">{label}</label>
-            <select name={name} value={form[name]} onChange={handleChange} className="w-full p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-base text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-4 focus:ring-indigo-200">
+            <select name={name} value={form[name]} onChange={handleChange} className="backdrop-blur-xl w-full p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/50 text-base text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-4 focus:ring-indigo-200">
               {opts.map((o: string) => (
                 <option key={o} value={o}>{o}</option>
               ))}
@@ -156,7 +156,7 @@ export default function SurveyPage() {
 
           <div className="mb-4">
             <label className="block text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">Additional notes</label>
-            <textarea name="additional_notes" value={form.additional_notes} onChange={handleChange} className={`w-full p-3 rounded-lg border bg-white dark:bg-slate-900 text-base text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-4 focus:ring-indigo-200 min-h-[110px] ${errors.additional_notes ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'}`} />
+            <textarea name="additional_notes" value={form.additional_notes} onChange={handleChange} className={`backdrop-blur-xl w-full p-3 rounded-lg border bg-white/50 dark:bg-slate-900 text-base text-slate-900 font-semibold dark:text-slate-100 focus:outline-none focus:ring-4 focus:ring-indigo-200 min-h-[110px] ${errors.additional_notes ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'}`} />
             {errors.additional_notes && <p className="text-base text-red-600 mt-1">{errors.additional_notes}</p>}
           </div>
 

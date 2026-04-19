@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { ViewTransitions } from 'next-view-transitions'
 
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
+     <ViewTransitions>
     <html lang="en" data-scroll-behavior="smooth">
       <Navbar/>
       <body className="font-sans antialiased">
@@ -41,5 +43,6 @@ export default function RootLayout({
       <Footer/>
       <Analytics />
     </html>
+    </ViewTransitions>
   )
 }

@@ -110,7 +110,7 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
           {images.length > 0 ? (
             <div className="space-y-4">
               {images.map((imageId) => (
-                <div key={imageId} className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted">
+                <div key={imageId} className="relative aspect-video w-full overflow-hidden">
                   <Image
                     src={`/api/projects/${project.id}/images/${imageId}`}
                     alt={project.name}

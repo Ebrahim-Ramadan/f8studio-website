@@ -1,12 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
 import { ArrowLeft } from 'lucide-react'
 import { Spinner } from '@/components/ui/spinner'
+import { Link } from 'next-view-transitions'
 
 interface Project {
   id: string
@@ -25,6 +23,9 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
   const [project, setProject] = useState<Project | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [preview, setPreview] = useState<{ id: string; name: string; description: string; imageUrl?: string } | null>(null)
+  const imagesRef = useRef<HTMLDivElement | null>(null)
+  const [imagesInView, setImagesInView] = useState(false)
   const [imageDims, setImageDims] = useState<Record<string, { width: number; height: number }>>({})
 
   useEffect(() => {
@@ -46,6 +47,36 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
 
     fetchProject()
   }, [id])
+
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem(`project_preview_${id}`)
+      if (raw) {
+        const parsed = JSON.parse(raw)
+        setPreview(parsed)
+      }
+    } catch (e) {
+      // ignore parse errors
+    }
+  }, [id])
+
+  useEffect(() => {
+    if (!imagesRef.current || imagesInView) return
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setImagesInView(true)
+            obs.disconnect()
+            break
+          }
+        }
+      },
+      { root: null, rootMargin: '200px', threshold: 0.1 }
+    )
+    obs.observe(imagesRef.current)
+    return () => obs.disconnect()
+  }, [imagesInView])
 
   const images = project && Array.isArray(project.images) ? project.images : []
 
@@ -81,24 +112,10 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
     }
   }, [project, images, imageDims])
 
-  if (loading) {
+  // If there was an error and we don't have either the full project or a preview, show error
+  if (error && !project && !preview) {
     return (
       <>
-        {/* <Navbar /> */}
-        <main className="min-h-screen bg-background pt-20 flex items-center justify-center">
-          <p className="text-muted-foreground">
-            <Spinner />
-          </p>
-        </main>
-        {/* <Footer /> */}
-      </>
-    )
-  }
-
-  if (error || !project) {
-    return (
-      <>
-        {/* <Navbar /> */}
         <main className="min-h-screen bg-background pt-20">
           <div className="max-w-7xl mx-auto px-6 py-12">
             <Link
@@ -113,7 +130,6 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
             </div>
           </div>
         </main>
-        {/* <Footer /> */}
       </>
     )
   }
@@ -135,48 +151,58 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
 
           <div className="mb-8">
             <h1 className="text-5xl md:text-6xl font-light tracking-tight text-foreground mb-6 leading-tight">
-              {project.name}
+              {project?.name ?? preview?.name}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
-              {project.description}
+              {project?.description ?? preview?.description}
             </p>
           </div>
 
-          {images.length > 0 ? (
-            <div className="space-y-4">
-              {images.map((imageId) => {
-                const dims = imageDims[imageId]
-                return (
-                  <div key={imageId} className="w-full overflow-hidden rounded-lg bg-muted">
-                    {dims ? (
-                      <Image
-                        src={`/api/projects/${project.id}/images/${imageId}`}
-                        alt={project.name}
-                        width={dims.width}
-                        height={dims.height}
-                        style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
-                        priority={false}
-                      />
-                    ) : (
-                      <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted">
+          <div ref={imagesRef}>
+            {project ? (
+              images.length > 0 ? (
+                <div className="space-y-4">
+                  {images.map((imageId) => (
+                    <div key={imageId} className="w-full overflow-hidden ">
+                      <div className="relative aspect-video w-full overflow-hidden ">
                         <Image
-                          src={`/api/projects/${project.id}/images/${imageId}`}
-                          alt={project.name}
+                          src={`/api/projects/${project!.id}/images/${imageId}`}
+                          alt={project!.name}
                           fill
                           className="h-full w-full object-contain"
                           priority={false}
                         />
                       </div>
-                    )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-16">
+                  <p className="text-muted-foreground">No images available for this project</p>
+                </div>
+              )
+            ) : (
+              // Show preview image immediately if available; otherwise only show spinner when section is in view
+              preview?.imageUrl ? (
+                <div className="space-y-4">
+                  <div className="w-full overflow-hidden ">
+                    <div className="relative aspect-video w-full overflow-hidden ">
+                      <Image
+                        src={preview.imageUrl}
+                        alt={preview.name}
+                        fill
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
                   </div>
-                )
-              })}
-            </div>
-          ) : (
-            <div className="text-center py-16">
-              <p className="text-muted-foreground">No images available for this project</p>
-            </div>
-          )}
+                </div>
+              ) : imagesInView && loading ? (
+                <div className="py-16 flex items-center justify-center">
+                  <Spinner />
+                </div>
+              ) : null
+            )}
+          </div>
 
           <div className="mt-10 pt-8 border-t border-border">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -184,11 +210,11 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
                 <h3 className="text-sm font-medium tracking-wide text-foreground mb-2 uppercase">
                   Project Date
                 </h3>
-                <p className="text-base text-muted-foreground">
-                  {new Date(project.created_at).toLocaleDateString('en-US', {
+                  <p className="text-base text-muted-foreground">
+                  {project ? new Date(project.created_at).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
-                  })}
+                  }) : <span className="text-muted-foreground">Loading...</span>}
                 </p>
               </div>
               <div>

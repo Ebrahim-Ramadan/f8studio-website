@@ -1,7 +1,7 @@
 'use client'
 
+import { Link } from 'next-view-transitions'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useState } from 'react'
 
 interface ProjectCardProps {
@@ -15,8 +15,17 @@ interface ProjectCardProps {
 export function ProjectCard({ id, name, description, imageUrl, slug = id }: ProjectCardProps) {
   const [isLoading, setIsLoading] = useState(true)
 
+  const handleClick = () => {
+    try {
+      const preview = { id, name, description, imageUrl }
+      sessionStorage.setItem(`project_preview_${id}`, JSON.stringify(preview))
+    } catch (e) {
+      // ignore sessionStorage failures
+    }
+  }
+
   return (
-    <Link href={`/projects/${slug}`}>
+    <Link href={`/projects/${slug}`} onClick={handleClick}>
       <div className="group cursor-pointer">
         <div className="relative rounded-lg overflow-hidden bg-muted aspect-video mb-6">
           {imageUrl && (

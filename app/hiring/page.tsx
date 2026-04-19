@@ -182,6 +182,7 @@ export default function HiringPage() {
                   <div>
                     <label className="block font-medium font-medium mb-1">Full name</label>
                     <Input
+                    autoFocus
                       name="fullName"
                       placeholder="Type Your Full name"
                       required

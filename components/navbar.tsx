@@ -1,9 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, FolderOpen, Play, Sparkles, UserRound, Info, Mail, FileQuestion } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { Link } from 'next-view-transitions'
 
 export function Navbar() {
   const pathname = usePathname()
