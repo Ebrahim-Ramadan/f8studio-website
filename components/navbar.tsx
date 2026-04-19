@@ -15,7 +15,7 @@ export function Navbar() {
     { href: '/', label: 'Projects', icon: FolderOpen },
     { href: '/showreel', label: 'Showreel', icon: Play },
     { href: '/animation', label: 'Animation', icon: Sparkles },
-    { href: '/hiring', label: 'Apply', icon: UserRound },
+    { href: '/hiring', label: 'Join us', icon: UserRound },
     { href: '/about', label: 'About', icon: Info },
     // { href: '/survey', label: 'Survey', icon: FileQuestion },
     { href: '/#contact', label: 'Contact', icon: Mail },
