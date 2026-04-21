@@ -1,5 +1,27 @@
 import Image from 'next/image'
 
+export const metadata = {
+  title: 'Our Team — Arch',
+  description: 'Meet the team behind Arch — Ahmed Ramadan (COO) and Lamis Medhat (CEO).',
+  openGraph: {
+    title: 'Our Team — Arch',
+    description: 'Meet the team behind Arch — Ahmed Ramadan (COO) and Lamis Medhat (CEO).',
+    url: '/ourteam',
+    siteName: 'Arch',
+    images: [
+      {
+        url: '/members/ahmed ramadan - coo.webp',
+        width: 800,
+        height: 600,
+        alt: 'Ahmed Ramadan',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+}
+
 export default function OurTeamPage() {
   const members = [
     { name: 'Ahmed Ramadan', role: 'COO', img: '/members/ahmed ramadan - coo.webp' },
