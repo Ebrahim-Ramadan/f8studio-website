@@ -218,7 +218,7 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
                 </p>
               </div>
               <div>
-                <Link href="/ourteam" className="group inline-flex items-center gap-4">
+                <Link href="/about" className="group inline-flex items-center gap-4">
                   <div className="relative w-28 h-12">
                     <div className="absolute left-0 top-0 w-12 h-12 rounded-full overflow-hidden ring-2 ring-background shadow-sm">
                       <Image

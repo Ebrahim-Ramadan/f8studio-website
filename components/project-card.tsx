@@ -36,7 +36,7 @@ export function ProjectCard({ id, name, description, imageUrl, slug = id }: Proj
               className={`rounded-lg object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 ${
                 isLoading ? 'blur-sm' : 'blur-0'
               }`}
-              onLoadingComplete={() => setIsLoading(false)}
+              onLoad={() => setIsLoading(false)}
             />
           )}
           <div className="rounded-lg absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />

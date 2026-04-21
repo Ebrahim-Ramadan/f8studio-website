@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'About F8 Studios',
@@ -8,6 +9,23 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
+  const members = [
+    {
+      name: 'Ahmed Ramadan',
+      role: 'COO',
+      img: '/members/ahmed ramadan - coo.webp',
+      quote:
+        '“The most valuable asset walks out the office everyday, employees are the life blood of any firm. Each with the unique skill set and untapped potential, unlocking that potential and nurturing it is what we excel at.”',
+    },
+    {
+      name: 'Lamis Medhat',
+      role: 'CEO',
+      img: '/members/lamis - ceo.webp',
+      quote:
+        '“Consistency, commitment and hard work... three key aspects to excel. I believe that every architect has the potential to visualise unique stories, it just needs hard work to reach greater heights.”',
+    },
+  ]
+
   return (
     <>
       <main className="min-h-screen bg-background pt-24">
@@ -20,8 +38,29 @@ export default function AboutPage() {
             <div className="h-1 w-12 bg-accent" />
           </div>
 
+
           {/* Content */}
-          <div className="space-y-12">
+          <div className="space-y-12 ">
+
+          <div className="flex flex-col md:flex-row md:justify-center md:items-start gap-8 pt-6">
+            {members.map((m) => (
+              <div key={m.name} className="text-center w-full md:max-w-xs">
+                <div className="mx-auto w-full max-w-xs aspect-[4/5] overflow-hidden bg-muted">
+                  <Image
+                    src={m.img}
+                    alt={m.name}
+                    width={800}
+                    height={1000}
+                    quality={75}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <h3 className="mt-6 text-sm font-semibold text-foreground">{m.name}</h3>
+                <p className="text-xs text-muted-foreground mt-1">{m.role}</p>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed text-left ">{m.quote}</p>
+              </div>
+            ))}
+          </div>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed">
                 F8 is a creative studio where design is shaped with intention — every line, form, and detail driven by a deeper sense of direction.
@@ -84,6 +123,8 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+          
+          
           </div>
         </section>
       </main>
