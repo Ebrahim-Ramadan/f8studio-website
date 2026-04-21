@@ -5,6 +5,8 @@ import { CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import Image from 'next/image'
+import { Link } from 'next-view-transitions'
 
 type SubmissionState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -274,9 +276,38 @@ export function ContactSection() {
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-md">
               Share your idea, project scope, and timeline. We will review your message and get back to you with a tailored response.
             </p>
+         
             <div className="mt-8 space-y-3 text-sm text-muted-foreground">
-              <p>Email: info@f8-studios.net</p>
+               <Link href="/ourteam" className="group inline-flex items-center gap-4">
+                  <div className="relative w-28 h-12">
+                    <div className="absolute left-0 top-0 w-12 h-12 rounded-full overflow-hidden ring-2 ring-background shadow-sm">
+                      <Image
+                        src="/members/ahmed ramadan - coo.webp"
+                        alt="Ahmed Ramadan"
+                        width={48}
+                        height={48}
+                        quality={30}
+                        className="object-cover w-full h-full transform scale-110"
+                      />
+                    </div>
+                    <div className="absolute left-9 top-0 w-12 h-12 rounded-full overflow-hidden ring-1 ring-background/50 backdrop-blur-xl shadow-sm">
+                      <Image
+                        src="/members/lamis - ceo.webp"
+                        alt="Lamis"
+                        width={48}
+                        height={48}
+                        quality={10}
+                        className="object-cover w-full h-full transform scale-110"
+                      />
+                    </div>
+                  </div>
+
+               
+                </Link>
+        <div>
+                <p>Email: info@f8-studios.net</p>
               <p>Location: Al-Mansurah, Egypt</p>
+        </div>
             </div>
           </div>
 

@@ -218,10 +218,35 @@ export function ProjectDetailClient({ id }: ProjectDetailClientProps) {
                 </p>
               </div>
               <div>
-                <h3 className="text-sm font-medium tracking-wide text-foreground mb-2 uppercase">
-                  Category
-                </h3>
-                <p className="text-base text-muted-foreground">Architecture & Visualization</p>
+                <Link href="/ourteam" className="group inline-flex items-center gap-4">
+                  <div className="relative w-28 h-12">
+                    <div className="absolute left-0 top-0 w-12 h-12 rounded-full overflow-hidden ring-2 ring-background shadow-sm">
+                      <Image
+                        src="/members/ahmed ramadan - coo.webp"
+                        alt="Ahmed Ramadan"
+                        width={48}
+                        height={48}
+                        quality={30}
+                        className="object-cover w-full h-full transform scale-110"
+                      />
+                    </div>
+                    <div className="absolute left-9 top-0 w-12 h-12 rounded-full overflow-hidden ring-1 ring-background/50 backdrop-blur-xl shadow-sm">
+                      <Image
+                        src="/members/lamis - ceo.webp"
+                        alt="Lamis"
+                        width={48}
+                        height={48}
+                        quality={10}
+                        className="object-cover w-full h-full transform scale-110"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-sm font-medium tracking-wide text-foreground mb-2 uppercase">Our Team</h3>
+                    <p className="text-base text-muted-foreground">Meet the team</p>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
