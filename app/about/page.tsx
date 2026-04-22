@@ -14,15 +14,17 @@ export default function AboutPage() {
       name: 'Ahmed Ramadan',
       role: 'COO',
       img: '/members/ahmed ramadan - coo.webp',
+      email: 'ahmedramadan@f8-studios.net',
       quote:
-        '“The most valuable asset walks out the office everyday, employees are the life blood of any firm. Each with the unique skill set and untapped potential, unlocking that potential and nurturing it is what we excel at.”',
+        '“It’s never about a single element—it’s about how lighting, materials, technology, and space work together to create something complete, functional, and alive.”',
     },
     {
-      name: 'Lamis Medhat',
+      name: 'Lamis Abualsaad',
       role: 'CEO',
       img: '/members/lamis - ceo.webp',
+      email: 'lamisabualsaad@f8-studios.net',
       quote:
-        '“Consistency, commitment and hard work... three key aspects to excel. I believe that every architect has the potential to visualise unique stories, it just needs hard work to reach greater heights.”',
+        '“what’s real doesn’t just look good — it works, it lasts, it feels right. It holds its value over time, not because it tries to impress, but because it’s built with intention, honesty, and purpose.”',
     },
   ]
 
@@ -57,7 +59,16 @@ export default function AboutPage() {
                 </div>
                 <h3 className="mt-6 text-sm font-semibold text-foreground">{m.name}</h3>
                 <p className="text-xs text-muted-foreground mt-1">{m.role}</p>
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed text-left ">{m.quote}</p>
+                
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed text-left tracking-wider">{m.quote}</p>
+                {m.email && (
+                  <a
+                    href={`mailto:${m.email}`}
+                    className="text-xs text-muted-foreground mt-1 block hover:underline"
+                  >
+                    {m.email}
+                  </a>
+                )}
               </div>
             ))}
           </div>
