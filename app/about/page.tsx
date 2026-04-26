@@ -19,10 +19,10 @@ export default function AboutPage() {
         '“It’s never about a single element—it’s about how lighting, materials, technology, and space work together to create something complete, functional, and alive.”',
     },
     {
-      name: 'Lamis Abualsaad',
+      name: 'Lamis Aboalsaad',
       role: 'CEO',
       img: '/members/lamis - ceo.webp',
-      email: 'lamisabualsaad@f8-studios.net',
+      email: 'lamisaboalsaad@f8-studios.net',
       quote:
         '“what’s real doesn’t just look good — it works, it lasts, it feels right. It holds its value over time, not because it tries to impress, but because it’s built with intention, honesty, and purpose.”',
     },
@@ -44,9 +44,9 @@ export default function AboutPage() {
           {/* Content */}
           <div className="space-y-12 ">
 
-          <div className="flex flex-col md:flex-row md:justify-center md:items-start gap-8 pt-6">
+          <div className="flex flex-wrap justify-center md:flex-row md:justify-center md:items-start gap-8 pt-6">
             {members.map((m) => (
-              <div key={m.name} className="text-center w-full md:max-w-xs">
+              <div key={m.name} className="text-center w-1/2 md:w-auto md:max-w-xs">
                 <div className="mx-auto w-full max-w-xs aspect-[4/5] overflow-hidden bg-muted">
                   <Image
                     src={m.img}
