@@ -498,7 +498,7 @@ export default function HiringPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {['I follow instructions well','I think and challenge ideas','I do both depending on the situation'].map(a=> (
                       <label key={a} className="inline-flex items-center gap-2 font-medium">
-                        <input className="h-4 w-4 accent-indigo-600" type="radio" name="finalFilter" value={a} />
+                        <input className="h-4 w-4" type="radio" name="finalFilter" value={a} style={{accentColor: 'var(--primary)'}} />
                         <span>{a}</span>
                       </label>
                     ))}
@@ -512,11 +512,11 @@ export default function HiringPage() {
                 </div>
               </section>
 
-              <div className="flex items-center justify-end gap-4">
+                <div className="flex items-center justify-end gap-4">
                 {message && (
                   <div className="font-medium mr-auto text-rose-600 whitespace-pre-wrap">{message}</div>
                 )}
-                <Button type="submit" size="lg" disabled={loading} className='text-lg font-bold bg-blue-400 hover:bg-blue-500 disabled:bg-blue-300 disabled:text-gray-500'>
+                <Button type="submit" size="lg" disabled={loading} className='text-lg font-bold'>
                   {loading ? 'Submitting...' : 'Submit '}
                 </Button>
               </div>
@@ -530,11 +530,11 @@ export default function HiringPage() {
                 <div className="py-6 flex flex-col items-center justify-center gap-6">
                   <div className="w-40 h-40 rounded-full bg-white/90 dark:bg-slate-900/80 flex items-center justify-center shadow-lg">
                     <svg width="96" height="96" viewBox="0 0 52 52" className="text-emerald-600" aria-hidden>
-                      <circle cx="26" cy="26" r="25" fill="none" stroke="rgba(16,185,129,0.15)" strokeWidth="2"></circle>
+                      <circle cx="26" cy="26" r="25" fill="none" stroke="var(--primary)" strokeOpacity="0.15" strokeWidth="2"></circle>
                       <path
                         d="M14 27l7 7 16-16"
                         fill="none"
-                        stroke="#059669"
+                        stroke="var(--primary)"
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"

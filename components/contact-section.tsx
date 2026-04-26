@@ -409,7 +409,7 @@ export function ContactSection() {
                 <p>{responseMessage || 'We typically reply within 1-2 business days.'}</p>
               </div>
 
-              <Button type="submit" disabled={submissionState === 'submitting'} className="min-w-36 bg-blue-400 hover:bg-blue-500 disabled:bg-blue-300 disabled:text-gray-500">
+              <Button type="submit" disabled={submissionState === 'submitting'} className="min-w-36">
                 {submissionState === 'submitting' ? 'Sending...' : 'Send Message'}
               </Button>
             </div>
