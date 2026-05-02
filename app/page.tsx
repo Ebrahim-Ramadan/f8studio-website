@@ -11,27 +11,33 @@ export default async function Home() {
     <>
       {/* <Navbar /> */}
       <main className="min-h-screen bg-background pt-24 pb-12 -mt-4">
-        {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-4 md:-mt-12  md:py-0 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        {/* Hero Section - background video */}
+        <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden flex items-end">
+          <video
+            className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+            src="/cinematic bg.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-black/30 z-10" />
+
+          <div className="relative z-20 w-full max-w-7xl mx-auto px-4 pb-8">
             <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-light tracking-tight text-foreground mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-light tracking-tight text-white mb-2 leading-tight">
                 Form Follows Fate
               </h1>
-              <p className="md:text-lg text-base text-muted-foreground md:leading-relaxed max-w-xl">
+              <p className="md:text-lg text-base text-white/80 md:leading-relaxed max-w-xl">
                 High-end 3D visualization, interior and exterior design, and technical detailing that transforms concepts into refined, realistic outcomes.
               </p>
             </div>
 
-            <div className="hidden md:flex justify-end">
-              <div className="relative h-fit max-w-md aspect-square opacity-80 pointer-events-none select-none">
-                <img
-                  src="/globe-outline-light.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="h-full w-full object-contain"
-                />
-              </div>
+            <div className="mt-6 flex justify-center">
+              <a href="#projects" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full backdrop-blur-sm">
+                Discover projects
+              </a>
             </div>
           </div>
         </section>
@@ -42,7 +48,7 @@ export default async function Home() {
        
        
         {/* Projects Grid */}
-        <section className="max-w-7xl mx-auto px-6 ">
+        <section id="projects" className="max-w-7xl mx-auto px-6 py-12 md:py-20">
           <h2 className="text-3xl font-light tracking-wide text-foreground md:mb-8 mb-6">
             Projects
           </h2>
